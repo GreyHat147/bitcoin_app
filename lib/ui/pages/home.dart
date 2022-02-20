@@ -1,8 +1,13 @@
+import 'package:bitcoin_app/ui/pages/create_wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:bitcoin_app/ui/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  void _goToCreateWalletPage(BuildContext context) {
+    Navigator.pushNamed(context, "create");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,9 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CustomButton(
-                  onTap: () {},
+                  onTap: () {
+                    _goToCreateWalletPage(context);
+                  },
                   text: "Create Wallet",
                 ),
                 CustomButton(
