@@ -11,7 +11,12 @@ class CreateWalletPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CreateWalletCubit(),
-      child: BlocBuilder<CreateWalletCubit, CreateWalletState>(
+      child: BlocConsumer<CreateWalletCubit, CreateWalletState>(
+        listener: (context, state) {
+          if (state.seedSaved) {
+            print("seed saved");
+          }
+        },
         builder: (context, state) => Scaffold(
           appBar: AppBar(
             title: const Text("Create Wallet"),
@@ -33,7 +38,7 @@ class CreateWalletPage extends StatelessWidget {
                   ),
                 if (state.mnemonic != null) Mnemonic(mnemonic: state.mnemonic!),
                 CustomButton(
-                  onTap: () {},
+                  onTap: context.read<CreateWalletCubit>().saveNnemomic,
                   text: "Save",
                 ),
               ],

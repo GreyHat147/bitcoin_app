@@ -10,6 +10,7 @@ class CreateWalletCubit extends Cubit<CreateWalletState> {
   }
 
   final BitcoinSevice bitcoinSevice = BitcoinSevice();
+  final StorageService storageService = StorageService();
 
   void generateMnemonic() {
     String nmemonic = bitcoinSevice.generateMnemonic();
@@ -17,5 +18,15 @@ class CreateWalletCubit extends Cubit<CreateWalletState> {
     emit(CreateWalletState(mnemonic: nmemonic));
 
     print("nmemonic $nmemonic");
+  }
+
+  void saveNnemomic() {
+    if (state.mnemonic == null) return;
+
+    storageService.saveVal('seed', state.mnemonic!).then((_) {
+      emit(
+        CreateWalletState(mnemonic: state.mnemonic!, seedSaved: true),
+      );
+    });
   }
 }
