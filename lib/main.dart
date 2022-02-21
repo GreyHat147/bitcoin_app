@@ -1,9 +1,8 @@
-import 'package:bitcoin_app/presentation/presentation.dart';
+import 'package:flutter/material.dart';
+
 import 'package:bitcoin_app/ui/pages/create_wallet.dart';
 import 'package:bitcoin_app/ui/pages/onboarding.dart';
-import 'package:flutter/material.dart';
 import 'package:bitcoin_app/ui/pages/pages.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());

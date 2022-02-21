@@ -1,6 +1,6 @@
-// ignore: import_of_legacy_library_into_null_safe
 import 'dart:typed_data';
 
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:bip39/bip39.dart' as bip39;
 import 'package:bitcoin_flutter/bitcoin_flutter.dart';
 

@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:bitcoin_app/presentation/presentation.dart';
@@ -21,8 +19,6 @@ class OnboardingCubit extends Cubit<OnBoardingState> {
 
   Future<void> _getCurrentAddress() async {
     final String? val = await _storageService.getValue('address');
-
-    print("address $val");
     if (val != null) {
       emit(OnBoardingState(address: val));
     }

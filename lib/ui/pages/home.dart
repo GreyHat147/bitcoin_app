@@ -1,4 +1,3 @@
-import 'package:bitcoin_app/ui/pages/create_wallet.dart';
 import 'package:flutter/material.dart';
 import 'package:bitcoin_app/ui/widgets/widgets.dart';
 
