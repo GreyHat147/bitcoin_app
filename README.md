@@ -13,3 +13,8 @@ Run the following command to run the unit tests:
 ```
 flutter test --no-sound-null-safety
 ```
+Run the following command to build the debug apk:
+
+```
+flutter build apk --no-sound-null-safety --debug
+```
