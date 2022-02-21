@@ -42,9 +42,12 @@ class OnboardingPage extends StatelessWidget {
                 ),
                 if (state.address != null)
                   Expanded(
-                    child: Text(
+                    child: SelectableText(
                       state.address!,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
                     ),
                   )
               ],

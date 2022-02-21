@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:bip39/bip39.dart' as bip39;
+import 'package:bip32/bip32.dart' as bip32;
 import 'package:bitcoin_flutter/bitcoin_flutter.dart';
 
 abstract class IBitcoinService {
@@ -16,6 +17,8 @@ abstract class IBitcoinService {
   HDWallet createHDWallet(Uint8List seed);
 
   String generateTesnetAddress(String wif);
+
+  String importMnemonic(String mnemonic);
 }
 
 class BitcoinSevice implements IBitcoinService {
@@ -40,5 +43,12 @@ class BitcoinSevice implements IBitcoinService {
       network: testnetNetwork,
     ).data.address;
     return address;
+  }
+
+  @override
+  String importMnemonic(String mnemonic) {
+    final seed = bip39.mnemonicToSeed(mnemonic);
+    final node = bip32.BIP32.fromSeed(seed);
+    return generateTesnetAddress(node.toWIF());
   }
 }

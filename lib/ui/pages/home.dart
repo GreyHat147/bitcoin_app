@@ -8,6 +8,10 @@ class HomePage extends StatelessWidget {
     Navigator.pushNamed(context, "create");
   }
 
+  void _goToRecoveralletPage(BuildContext context) {
+    Navigator.pushNamed(context, "recover");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +37,7 @@ class HomePage extends StatelessWidget {
                   text: "Create Wallet",
                 ),
                 CustomButton(
-                  onTap: () {},
+                  onTap: () => _goToRecoveralletPage(context),
                   btnColor: Colors.black,
                   text: "Recover Wallet",
                 ),

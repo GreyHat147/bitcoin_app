@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:bitcoin_app/ui/pages/create_wallet.dart';
-import 'package:bitcoin_app/ui/pages/onboarding.dart';
 import 'package:bitcoin_app/ui/pages/pages.dart';
 
 void main() {
@@ -24,6 +22,7 @@ class MyApp extends StatelessWidget {
         "home": (context) => const HomePage(),
         "create": (context) => const CreateWalletPage(),
         "onboarding": (context) => const OnboardingPage(),
+        "recover": (context) => const RecoverWalletPage(),
       },
     );
   }

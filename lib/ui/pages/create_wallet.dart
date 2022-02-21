@@ -76,7 +76,7 @@ class Mnemonic extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          SelectableText(
             mnemonic,
             style: const TextStyle(fontSize: 45),
           ),

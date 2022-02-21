@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   freezed: ^0.14.1
   flutter_secure_storage: ^5.0.2
+  bip32: ^1.0.5
 
 dev_dependencies:
   flutter_test:
