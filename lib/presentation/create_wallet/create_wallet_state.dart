@@ -1,8 +1,8 @@
 class CreateWalletState {
   final String? mnemonic;
-  final bool seedSaved;
+  final bool walletCreated;
   CreateWalletState({
     this.mnemonic,
-    this.seedSaved = false,
+    this.walletCreated = false,
   });
 }

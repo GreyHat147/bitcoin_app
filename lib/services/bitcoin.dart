@@ -14,6 +14,8 @@ abstract class IBitcoinService {
   Uint8List mnemonicToSeed(String mnemonic);
 
   HDWallet createHDWallet(Uint8List seed);
+
+  String generateTesnetAddress(String wif);
 }
 
 class BitcoinSevice implements IBitcoinService {
@@ -28,4 +30,15 @@ class BitcoinSevice implements IBitcoinService {
 
   @override
   HDWallet createHDWallet(Uint8List seed) => HDWallet.fromSeed(seed);
+
+  @override
+  String generateTesnetAddress(String wif) {
+    final testnetNetwork = testnet;
+    final keyPair = ECPair.fromWIF(wif);
+    final address = P2PKH(
+      data: PaymentData(pubkey: keyPair.publicKey),
+      network: testnetNetwork,
+    ).data.address;
+    return address;
+  }
 }

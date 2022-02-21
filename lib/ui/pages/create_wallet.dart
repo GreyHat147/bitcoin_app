@@ -7,15 +7,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CreateWalletPage extends StatelessWidget {
   const CreateWalletPage({Key? key}) : super(key: key);
 
+  void _onWalletCreated(BuildContext context) {
+    SnackBar snackBar =
+        const SnackBar(content: Text("Bitcoin Wallet created succesfully"));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    Navigator.pushNamedAndRemoveUntil(context, "onboarding", (route) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CreateWalletCubit(),
       child: BlocConsumer<CreateWalletCubit, CreateWalletState>(
         listener: (context, state) {
-          if (state.seedSaved) {
-            print("seed saved");
-          }
+          if (state.walletCreated) _onWalletCreated(context);
         },
         builder: (context, state) => Scaffold(
           appBar: AppBar(
